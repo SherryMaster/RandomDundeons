@@ -68,36 +68,34 @@ enum Face {RIGHT, LEFT, UP, DOWN}
 
 @export_group("Textures")
 
-@export var textures: Dictionary[Type, Texture2D] = {
-    Type.CENTER: null,
-    Type.END: null,
-    Type.NO_END: null,
-    Type.CORNER: null
-}:
+@export var textures: Dictionary[Type, Texture2D] = {}:
     set(value):
         textures = value
         update_wall_textures()
 
 
 func update_wall_textures():
+    if textures.is_empty():
+        return
+
     match type:
         Type.CENTER:
-            if textures[Type.CENTER] == null:
+            if not textures.has(Type.CENTER) or textures[Type.CENTER] == null:
                 center.get_node("Sprite2D").texture = null
                 return
             center.get_node("Sprite2D").texture = textures[Type.CENTER]
         Type.END:
-            if textures[Type.END] == null:
+            if not textures.has(Type.END) or textures[Type.END] == null:
                 end.get_node("Sprite2D").texture = null
                 return
             end.get_node("Sprite2D").texture = textures[Type.END]
         Type.NO_END:
-            if textures[Type.NO_END] == null:
+            if not textures.has(Type.NO_END) or textures[Type.NO_END] == null:
                 no_end.get_node("Sprite2D").texture = null
                 return
             no_end.get_node("Sprite2D").texture = textures[Type.NO_END]
         Type.CORNER:
-            if textures[Type.CORNER] == null:
+            if not textures.has(Type.CORNER) or textures[Type.CORNER] == null:
                 corner.get_node("Sprite2D").texture = null
                 return
             corner.get_node("Sprite2D").texture = textures[Type.CORNER]

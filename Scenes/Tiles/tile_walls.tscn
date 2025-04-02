@@ -9,6 +9,7 @@ wall_up = true
 wall_right = true
 wall_down = true
 wall_left = true
+textures = null
 
 [node name="N" parent="." instance=ExtResource("2_1q8th")]
 position = Vector2(0, -28)

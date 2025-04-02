@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c42gfxbvwhjar"]
+
+[ext_resource type="Script" uid="uid://c6pte6rr5gujx" path="res://Scripts/tile.gd" id="1_ud46h"]
+[ext_resource type="PackedScene" uid="uid://doyrmd7vqcwlm" path="res://Scenes/Tiles/tile_walls.tscn" id="2_ud46h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1nlyp"]
+size = Vector2(64, 64)
+
+[node name="BaseTile" type="Sprite2D"]
+script = ExtResource("1_ud46h")
+
+[node name="TileArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileArea"]
+visible = false
+shape = SubResource("RectangleShape2D_1nlyp")
+
+[node name="TileGates" type="Node2D" parent="."]
+
+[node name="TileWalls" parent="." instance=ExtResource("2_ud46h")]

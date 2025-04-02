@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://e2tjw56mi6u7"]
+
+[ext_resource type="Texture2D" uid="uid://d0cbs26xd7xay" path="res://Assets/Tiles/Classic/wall_center.png" id="1_41mnq"]
+[ext_resource type="Script" uid="uid://r57eu5glk38l" path="res://Scripts/wall.gd" id="1_htil7"]
+[ext_resource type="Texture2D" uid="uid://dqcokaox4bk58" path="res://Assets/Tiles/Classic/wall_end.png" id="2_122r4"]
+[ext_resource type="Texture2D" uid="uid://bw8g6kvutbaap" path="res://Assets/Tiles/Classic/wall_corner.png" id="2_w86ld"]
+[ext_resource type="Texture2D" uid="uid://c2b53oosx5l2k" path="res://Assets/Tiles/Classic/wall_no_end.png" id="3_122r4"]
+
+[node name="Wall" type="Node2D"]
+script = ExtResource("1_htil7")
+type = 1
+textures = Dictionary[int, Texture2D]({
+0: ExtResource("1_41mnq"),
+1: ExtResource("2_122r4"),
+2: ExtResource("3_122r4"),
+3: ExtResource("2_w86ld")
+})
+
+[node name="Center" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Center"]
+texture = ExtResource("1_41mnq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Center"]
+visible = false
+polygon = PackedVector2Array(-16, -4, 16, -4, 16, 4, -16, 4)
+
+[node name="End" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="End"]
+texture = ExtResource("2_122r4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="End"]
+visible = false
+polygon = PackedVector2Array(-8, -4, 8, -4, 8, 4, -8, 4)
+
+[node name="NoEnd" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="NoEnd"]
+texture = ExtResource("3_122r4")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="NoEnd"]
+visible = false
+polygon = PackedVector2Array(-8, -4, 8, -4, 8, 4, -8, 4)
+
+[node name="Corner" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(0, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="Corner"]
+texture = ExtResource("2_w86ld")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Corner"]
+visible = false
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, 0, 8, 0, 0, -8, 0)

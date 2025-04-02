@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4tw2asoe0cx3"]
+
+[ext_resource type="Texture2D" uid="uid://duo7kinmwawi0" path="res://Assets/arrow.png" id="1_e1h8x"]
+[ext_resource type="Script" uid="uid://qy0j10t2xj" path="res://Scenes/Utils/gate_direction.gd" id="2_hix58"]
+
+[node name="GateDirection" type="Sprite2D"]
+texture = ExtResource("1_e1h8x")
+script = ExtResource("2_hix58")

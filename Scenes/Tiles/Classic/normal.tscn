@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0oc5fm6xihvu"]
+
+[ext_resource type="PackedScene" uid="uid://c42gfxbvwhjar" path="res://Scenes/Tiles/base_tile.tscn" id="1_g7k2o"]
+[ext_resource type="Texture2D" uid="uid://crxnl8pu2ha50" path="res://Assets/Tiles/Classic/simple.png" id="2_hh63k"]
+[ext_resource type="PackedScene" uid="uid://c4tw2asoe0cx3" path="res://Scenes/Utils/gate_direction.tscn" id="3_hh63k"]
+
+[node name="Normal" instance=ExtResource("1_g7k2o")]
+texture = ExtResource("2_hh63k")
+
+[node name="CollisionShape2D" parent="TileArea" index="0"]
+visible = false
+
+[node name="GateDirection" parent="TileGates" index="0" instance=ExtResource("3_hh63k")]
+modulate = Color(0.5, 1, 0.5, 1)
+position = Vector2(-32, 0)
+type = 0
+
+[node name="GateDirection2" parent="TileGates" index="1" instance=ExtResource("3_hh63k")]
+modulate = Color(0.8, 0.5, 0.5, 1)
+position = Vector2(32, 0)
+type = 1

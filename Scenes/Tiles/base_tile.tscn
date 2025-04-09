@@ -1,30 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://c42gfxbvwhjar"]
+[gd_scene load_steps=4 format=3 uid="uid://c42gfxbvwhjar"]
 
 [ext_resource type="Script" uid="uid://c6pte6rr5gujx" path="res://Scripts/tile.gd" id="1_ud46h"]
-[ext_resource type="PackedScene" uid="uid://doyrmd7vqcwlm" path="res://Scenes/Tiles/tile_walls.tscn" id="2_ud46h"]
-[ext_resource type="Texture2D" uid="uid://d0cbs26xd7xay" path="res://Assets/Tiles/Classic/wall_center.png" id="3_pbocu"]
-[ext_resource type="Texture2D" uid="uid://dqcokaox4bk58" path="res://Assets/Tiles/Classic/wall_end.png" id="4_v5nqc"]
-[ext_resource type="Texture2D" uid="uid://c2b53oosx5l2k" path="res://Assets/Tiles/Classic/wall_no_end.png" id="5_v4w3i"]
-[ext_resource type="Texture2D" uid="uid://bw8g6kvutbaap" path="res://Assets/Tiles/Classic/wall_corner.png" id="6_x6pu8"]
+[ext_resource type="TileSet" uid="uid://dt7mbewvn7p1b" path="res://Resources/Tilesets/DungeonFloor.tres" id="2_ud46h"]
+[ext_resource type="TileSet" uid="uid://s7ayewnj3doy" path="res://Resources/Tilesets/DungeonWalls.tres" id="3_umswb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1nlyp"]
-size = Vector2(64, 64)
-
-[node name="BaseTile" type="Sprite2D"]
+[node name="BaseTile" type="Node2D"]
 script = ExtResource("1_ud46h")
 
-[node name="TileArea" type="Area2D" parent="."]
+[node name="Floor" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_ud46h")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileArea"]
-visible = false
-shape = SubResource("RectangleShape2D_1nlyp")
+[node name="Walls" type="TileMapLayer" parent="."]
+tile_set = ExtResource("3_umswb")
 
 [node name="TileGates" type="Node2D" parent="."]
 
-[node name="TileWalls" parent="." instance=ExtResource("2_ud46h")]
-textures = Dictionary[int, Texture2D]({
-0: ExtResource("3_pbocu"),
-1: ExtResource("4_v5nqc"),
-2: ExtResource("5_v4w3i"),
-3: ExtResource("6_x6pu8")
-})
+[node name="TileArea" type="Area2D" parent="."]

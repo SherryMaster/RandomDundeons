@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=4 uid="uid://bvi1d5stjkutf"]
+
+[ext_resource type="PackedScene" uid="uid://c42gfxbvwhjar" path="res://Scenes/Tiles/base_tile.tscn" id="1_fh6it"]
+[ext_resource type="PackedScene" uid="uid://c4tw2asoe0cx3" path="res://Scenes/Utils/gate_direction.tscn" id="2_c8vfc"]
+
+[node name="Hallway" instance=ExtResource("1_fh6it")]
+
+[node name="Floor" parent="." index="0"]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAA=")
+
+[node name="Walls" parent="." index="1"]
+tile_map_data = PackedByteArray("AAABAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAAMAAAAAAAAAAAAGAAMAAAAAAAAAAAAHAAMAAAAAAAAAAAAIAAMAAAAAAAAAAAAJAAMAAAAAAAAAAAAKAAMAAAAAAAAAAAALAAMAAAAAAAAAAAA=")
+
+[node name="GateDirection" parent="TileGates" index="0" instance=ExtResource("2_c8vfc")]
+modulate = Color(0.5, 1, 0.5, 1)
+position = Vector2(0, 32)
+type = 0
+
+[node name="GateDirection2" parent="TileGates" index="1" instance=ExtResource("2_c8vfc")]
+modulate = Color(0.8, 0.5, 0.5, 1)
+position = Vector2(192, 32)
+type = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileArea" index="0"]
+visible = false
+polygon = PackedVector2Array(0, 0, 192, 0, 192, 64, 0, 64)

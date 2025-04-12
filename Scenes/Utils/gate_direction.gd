@@ -1,5 +1,6 @@
 @tool
 extends Sprite2D
+class_name TileGate
 enum GateType {ENTER, EXIT, ANY}
 
 @export var type: GateType = GateType.ANY:

@@ -9,10 +9,14 @@ script = ExtResource("1_ud46h")
 
 [node name="Floor" type="TileMapLayer" parent="."]
 tile_set = ExtResource("2_ud46h")
+metadata/_edit_lock_ = true
 
 [node name="Walls" type="TileMapLayer" parent="."]
 tile_set = ExtResource("3_umswb")
+metadata/_edit_lock_ = true
 
 [node name="TileGates" type="Node2D" parent="."]
 
 [node name="TileArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 7
